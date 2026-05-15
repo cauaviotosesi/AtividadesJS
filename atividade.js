@@ -16,7 +16,11 @@ let nota3
 let nota4
 let media
 let i
-let op = 9
+let m
+let cm
+let grausC
+let grausF
+let op = 11
 
 //Inicio
 function menu() {
@@ -33,6 +37,8 @@ function menu() {
     console.log("| [6] Dolar -> Real                             |");
     console.log("| [7] Média de notas                            |");
     console.log("| [8] Tabuada                                   |");
+    console.log("| [9] Metros -> cm                              |");
+    console.log("| [10] °C -> °F                                 |");
     console.log("| [0] Sair                                      |");
     console.log("-------------------------------------------------");
     console.log("");
@@ -46,7 +52,7 @@ function soma(n1, n2) {
     n2 = parseFloat(prompt("Digite o segundo numero: "));
     resultado = (n1 + n2).toFixed(2)
     console.log(`Sua soma entre ${n1} + ${n2} = ${resultado}`);
-    op = 9;
+    op = 11;
     console.log("");
     console.log("");
     menu();
@@ -58,7 +64,7 @@ function sub(n1, n2) {
     n2 = parseFloat(prompt("Digite o segundo numero: "));
     resultado = (n1 - n2).toFixed(2)
     console.log(`Sua subtração entre ${n1} - ${n2} = ${resultado}`);
-    op = 9;
+    op = 11;
     console.log("");
     console.log("");
     menu();
@@ -70,7 +76,7 @@ function mult(n1, n2) {
     n2 = parseFloat(prompt("Digite o segundo numero: "));
     resultado = (n1 * n2).toFixed(2)
     console.log(`Sua multiplicação entre ${n1} * ${n2} = ${resultado}`);
-    op = 9;
+    op = 11;
     console.log("");
     console.log("");
     menu();
@@ -82,7 +88,7 @@ function div(n1, n2) {
     n2 = parseFloat(prompt("Digite o segundo numero: "));
     resultado = (n1 / n2).toFixed(2)
     console.log(`Sua multiplicação entre ${n1} / ${n2} = ${resultado}`);
-    op = 9;
+    op = 11;
     console.log("");
     console.log("");
     menu();
@@ -125,7 +131,7 @@ function calculoIMC(peso, altura) {
         console.log(`Seu IMC é de ${imc}. Você está com obesidade classe III, isto é muito perigoso! Tenha cuidado!`);
     }
 
-    op = 9;
+    op = 11;
     console.log("");
     console.log("");
     menu();
@@ -139,7 +145,7 @@ function conversaoDolar(dolares, cotacao, reais) {
     console.log("");
     console.log("");
     console.log(`Você possui R$${reais} convetidos na cotação de R$${cotacao} por dolar!`);
-    op = 9;
+    op = 11;
     console.log("");
     console.log("");
     menu();
@@ -160,8 +166,8 @@ function calculoMedia(nota1, nota2, nota3, nota4) {
     } else if (media >= 70) {
         console.log(`Você foi aprovado com a média de ${media}! Parabéns!`);
     }
-
-    op = 9;
+    
+    op = 11;
     console.log("");
     console.log("");
     menu();
@@ -175,7 +181,29 @@ function tabuada(n1) {
         console.log(`${n1} * ${i} = ${n1 * i}`)
     }
 
-    op = 9
+    op = 11
+    console.log("");
+    console.log("");
+    menu();
+}
+
+// conversao de metros para centimentro
+function conversaoMetros(m, cm) {
+    m = parseFloat(prompt("Insira a quantidade de metros que deseja converter para cm: "));
+    cm = m * 100
+    console.log(`${m}m em centímetros são ${cm}cm`)
+    op = 11
+    console.log("");
+    console.log("");
+    menu();
+}
+
+// Celcius para Fahrenheit
+function conversaoGraus(m, cm) {
+    grausC = parseInt(prompt("Insira o valor em graus celcius: "));
+    grausF = ((grausC*1.8) + 32).toFixed(0)
+    console.log(`Sua conversão de ${grausC}°C resulta em ${grausF}°F`)
+    op = 11
     console.log("");
     console.log("");
     menu();
@@ -200,13 +228,17 @@ while (op != 0) {
         calculoMedia();
     } else if (op == 8) {
         tabuada();
+    } else if (op == 9){
+        conversaoMetros()
+    } else if (op == 10){
+        conversaoGraus()
     } else {
         console.log("");
         console.log("");
         console.log("[ERRO] OPÇÃO INVALIDA... TENTE NOVAMENTE");
         console.log("");
         console.log("");
-        op = 9;
+        op = 11;
         menu();
     }
 }
